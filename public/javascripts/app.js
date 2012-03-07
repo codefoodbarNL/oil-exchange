@@ -17,8 +17,10 @@ var oil = {
     }(),
 
     init: function() {
+        console.log('init backbone...');
         var oilModule = this.module('Oil');
         new oilModule.Router();
         Backbone.history.start();
     }
 };
+

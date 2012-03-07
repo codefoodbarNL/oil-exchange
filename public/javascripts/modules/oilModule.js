@@ -11,9 +11,14 @@
     });
 
     Oil.Router = Backbone.Router.extend({
+
+        initialize: function() {
+            this.collection = new Oil.Collection();
+        },
+
         routes: {
-            "": "menu",
-            "products": "listProducts",
+            "": "listProducts",
+            "productlist": "listProducts",
             "product/:productId": "productDetail"
         },
 
@@ -23,13 +28,15 @@
 
         listProducts: function() {
             console.log('list of products');
-            this.collection = new Oil.Collection();
+
             this.view = new Oil.ProductsView({model: this.collection});
-            this.view.render();
+            $('#content').html(this.view.render().el);
         },
 
         productDetail: function(id) {
-            console.log('id='+id);
+            var model = this.collection.get(id);
+            this.view = new Oil.ProductView({model: model});
+            this.view.render();
         }
     });
 
@@ -41,7 +48,16 @@
 
         render: function() {
             console.log('render products list');
+            $(this.el).html('products');
+            return this;
         }
-    })
+    });
+
+    Oil.ProductView = Backbone.View.extend({
+        render: function() {
+            console.log('render product details for ' + this.model.id);
+            return this;
+        }
+    });
 
 })(oil.module("Oil"));
