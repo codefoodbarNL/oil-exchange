@@ -2,6 +2,7 @@ package controllers
 
 import play.api.mvc._
 import models.{ProductFormat, ProductStore, Product}
+import play.api.libs.json.Json
 
 object Application extends Controller {
   ProductStore.init()
@@ -12,9 +13,14 @@ object Application extends Controller {
   
   def products = Action {
     import play.api.libs.json._
-    val json: Seq[JsValue] = Product.all().map(Json.toJson(_)(ProductFormat)).toSeq
+    val json: Seq[JsValue] = Product.all().map(x => Json.toJson(x._1)(ProductFormat)).toSeq
     Ok(Json.toJson(JsObject(List("products"->JsArray(json)))))
   }
 
-  def newProduct = TODO
+  def newProduct(amount: Int) = Action { request =>
+    print(request.body.asText)
+    val product = Json.fromJson(request.body.asJson.get)(ProductFormat)
+    Product.put(product, amount)
+    Redirect(routes.Application.products)
+  }
 }
