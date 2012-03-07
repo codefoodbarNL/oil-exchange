@@ -13,14 +13,14 @@ object Application extends Controller {
   
   def products = Action {
     import play.api.libs.json._
-    val json: Seq[JsValue] = Product.all().map(x => Json.toJson(x._1)(ProductFormat)).toSeq
+    val json: Seq[JsValue] = Product.all().map(x => Json.toJson(x)(ProductFormat)).toSeq
     Ok(Json.toJson(JsObject(List("products"->JsArray(json)))))
   }
 
-  def newProduct(amount: Int) = Action { request =>
+  def newProduct = Action { request =>
     print(request.body.asText)
     val product = Json.fromJson(request.body.asJson.get)(ProductFormat)
-    Product.put(product, amount)
+    Product.put(product)
     Redirect(routes.Application.products)
   }
 }
