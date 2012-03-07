@@ -1,7 +1,20 @@
-@(message: String)
+<html>
+<head>
+    <script src="@routes.Assets.at("javascripts/jquery-1.7.1-min.js")"/>
+</head>
+<body>
+<h1>Oil Exchange</h1>
+<div class="main">
+    <ul>
+        <li><a href="#sell">Farmer</a></li>
+        <li><a href="#buy">Buyer</a></li>
+    </ul>
+    <div id="content" class="content">
 
-@main("Welcome to Play 2.0") {
-    
-    @play20.welcome(message)
-    
-}
+    </div>
+</div>
+<script src="@routes.Assets.at("javascripts/backbone.js")"/>
+<script src="@routes.Assets.at("javascripts/backbone-modelbinding.js")"/>
+
+</body>
+</html>
