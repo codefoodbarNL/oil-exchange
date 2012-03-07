@@ -2,7 +2,6 @@ package controllers
 
 import play.api.mvc._
 import models.{ProductFormat, ProductStore, Product}
-import collection.mutable.Iterable
 
 object Application extends Controller {
   ProductStore.init()
@@ -16,4 +15,6 @@ object Application extends Controller {
     val json: Seq[JsValue] = Product.all().map(Json.toJson(_)(ProductFormat)).toSeq
     Ok(Json.toJson(JsObject(List("products"->JsArray(json)))))
   }
+
+  def newProduct = TODO
 }

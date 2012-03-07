@@ -6,13 +6,13 @@ import play.api.libs.json._
 case class Product(id: Long, name: String) {
   implicit object ProductFormat extends Format[Product] {
     def reads(json: JsValue) = Product((json\"id").as[Long], (json\"name").as[String])
-    def writes(p: Product) = JsObject(List("id"->JsNumber(p.id), "name"->JsString(p.name)))
+    def writes(p: Product) = JsObject(List("id"->JsInteger(p.id), "name"->JsString(p.name)))
   }
 }
 
 object ProductFormat extends Format[Product] {
   def reads(json: JsValue) = Product((json\"id").as[Long], (json\"name").as[String])
-  def writes(p: Product) = JsObject(List("id"->JsNumber(p.id), "name"->JsString(p.name)))
+  def writes(p: Product) = JsObject(List("id"->JsInteger(p.id), "name"->JsString(p.name)))
 }
 
 object Product {
