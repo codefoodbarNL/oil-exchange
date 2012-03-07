@@ -1,9 +1,7 @@
-<html>
-<head>
-    <script src="@routes.Assets.at("javascripts/jquery-1.7.1-min.js")"/>
-</head>
-<body>
-<h1>Oil Exchange</h1>
+@(message: String)
+
+@main(message) {
+<h1>@message</h1>
 <div class="main">
     <ul>
         <li><a href="#sell">Farmer</a></li>
@@ -13,8 +11,4 @@
 
     </div>
 </div>
-<script src="@routes.Assets.at("javascripts/backbone.js")"/>
-<script src="@routes.Assets.at("javascripts/backbone-modelbinding.js")"/>
-
-</body>
-</html>
+}

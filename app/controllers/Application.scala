@@ -8,7 +8,7 @@ object Application extends Controller {
   ProductStore.init()
 
   def index = Action {
-    Ok(views.html.index())
+    Ok(views.html.index("Oil Exchange"))
   }
   
   def products = Action {
