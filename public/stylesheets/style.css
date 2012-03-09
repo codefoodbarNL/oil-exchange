@@ -1,70 +1,235 @@
 /* Getting the new tags to behave */
-article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video{ display: block; }
-mark, rp, rt, ruby, summary, time{ display: inline }
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {
+	display: block;
+}
+
+mark, rp, rt, ruby, summary, time {
+	display: inline
+}
 
 /* Site-wide properties ======================================================== */
-body{
-    font: normal normal 10px/10px Tahoma, Arial, Helvetica, Verdana, sans-serif; }
-    
-    /* Fibonacci based heading scale ratio */
-    h1{ font-size: 4.4em; font-weight: normal; }
-    h2{ font-size: 2.8em; font-weight: bold; }
-    h3{ font-size: 1.6em; font-weight: bold; }
-    h4{ font-size: 1.2em; font-weight: bold; }
+body {
+	font: normal normal 20px Helvetica, Tahoma, Arial, Verdana, sans-serif;
+	background: #000 url('../images/main_bg.jpg') no-repeat fixed top center;
+	background-size: cover;
+	color: #cbcaa5;
+	font-size: 1em;
+	font-weight: 100;
+}
+
+a {
+	color: #cbcaa5;
+}
+
+p {
+	margin-bottom: 5px;
+}
+
+/* Fibonacci based heading scale ratio */
+h1 {
+	font-size: 4.4em;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 2.8em;
+	font-weight: normal;
+}
+
+h3 {
+	font-size: 1.6em;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+
+h4 {
+	font-size: 1.2em;
+	font-weight: normal;
+}
 
 /* Reusable classes ============================================================ */
 
-/* Left & Right alignment */
-.left{ float: left; }
-.right{ float: right; }
+.altheader {
+	padding-top: 40px;
+	margin-left: 250px;
+	height: 148px;
+}
+
+.altheaderimg {
+	padding-top: 40px;
+	margin-left: 250px;
+	background-image: url('../images/header.png');
+	background-repeat: no-repeat;
+	background-position: 0px 40px;
+	height: 148px;
+}
+
+.sidebardecoration {
+	position: absolute;
+	background-image: url('../images/bottle.png');
+	overflow: hidden;
+	background-position: 0px 0px;
+	width: 283px;
+	height: 365px;
+	display: block;
+	top: -318px;
+	left: -10px;
+}
+
+.formcontainer {
+	/*	border: 1px solid red;*/
+	width: 50%;
+	display: block;
+	position: relative;
+	margin-top: 20px;
+}
+
+input {
+	width: 100%;
+	height: 20px;
+	background-color: #cbcaa5;
+	border-radius: 5px;
+	border-color: #CBCAA5;
+	outline: none;
+	border: 3px solid #CBCAA5;
+	color: #1d1e19;
+	font-size: 1em;
+	display: block;
+	clear: both;
+	margin-bottom: 15px;
+}
+
+input[type="button"] {
+	width: 100px;
+	height: 28px;
+	background-color: #cbcaa5;
+	border-radius: 5px;
+	border-color: #CBCAA5;
+	outline: none;
+	border: 3px solid #CBCAA5;
+	color: #1d1e19;
+	font-size: 1em;
+	clear: both;
+	display: block;
+	margin-bottom: 15px;
+	margin-right: -7px;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
 
 /* The inside class provides consistent padding. To be used often! */
-.inside{ padding: 20px;}
+.inside {
+	padding: 20px;
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 5px;
+	margin: 10px;
+}
 
-/* The fraction classes are useful for column lists */
-.half, .third, .quarter, .fifth, .sixth{ width: 100%; }
-.half li, .third li, .quarter li, .fifth li, .sixth li{ float: left; }
-.half li{ padding-right: 5%; width: 45% }
-.third li{  padding-right: 5%; width: 28.3% }
-.quarter li{  padding-right: 5%; width: 20% }
-.fifth li{  padding-right: 5%; width: 15% }
-
-/* For when a <br /> just ain't enough */
-.separator{
-    clear: both;
-    float: left;
-    height: 1px;
-    width: 100%; }
+li {
+	margin-left: 18px;
+}
 
 /* Basic Structure ============================================================= */
-#wrap{
-    margin: 0 auto;
-    position: relative;
-    width: 960px; }
+#wrap {
+	margin: 0 auto;
+	position: relative;
+	width: 960px;
+}
 
-    /* Header */
-    header{
-        float: left;
-        width: 100%; }
-    
-    /* Content */
-    article{
-        float: left;
-        width: 20%; }
-    
-    /* Sidebar */
-    aside{
-        float: left;
-        width: 80%; }
-        
-    /* Footer */
-    footer{
-        float: left;
-        width: 100%; }
-    
+/* Header */
+header {
+	position: relative;
+	float: left;
+	width: 100%;
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 5px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	height: 250px;
+}
+
+/* Sidebar */
+aside {
+	position: relative;
+	float: left;
+	width: 250px;
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 5px;
+}
+
+/* Content */
+article {
+	position: relative;
+	margin-left: 20px;
+	float: left;
+	width: 690px;
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 5px;
+}
+
+/* Footer */
+footer {
+	position: relative;
+	float: left;
+	width: 100%;
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
 /* Project specifics =========================================================== */
 /* Pour some CSS below ========================================================= */
-
 /* The H1 declarations - for @font-face presentational purposes only */
-h1{ font: 88px 'Lobster1.1Regular', Arial, sans-serif; }
-    h1 span{ font: 88px RalewayThin, Arial, sans-serif; letter-spacing: -4px }
+h1 {
+	font: 88px Arial, sans-serif;
+}
+
+h1 span {
+	font: 88px Arial, sans-serif;
+	letter-spacing: -4px
+}
+
+/* The fraction classes are useful for column lists */
+.half, .third, .quarter, .fifth, .sixth {
+	width: 100%;
+}
+
+.half li, .third li, .quarter li, .fifth li, .sixth li {
+	float: left;
+}
+
+.half li {
+	padding-right: 5%;
+	width: 45%
+}
+
+.third li {
+	padding-right: 5%;
+	width: 28.3%
+}
+
+.quarter li {
+	padding-right: 5%;
+	width: 20%
+}
+
+.fifth li {
+	padding-right: 5%;
+	width: 15%
+}
+
+/* For when a <br /> just ain't enough */
+.separator {
+	clear: both;
+	float: left;
+	height: 1px;
+	width: 100%;
+}
